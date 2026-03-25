@@ -16,4 +16,7 @@ else
 if(!rename("mir.txt", "folder/mir.txt"))
     echo "<br>Файл mir.txt не был перемещён в каталог folder из-за ошибки";
 else echo "<br>Файл mir.txt перемещён в каталог folder";
+if (copy("folder/mir.txt", "folder/world.txt"))
+    echo "<br>Создана копия файла mir.txt";
+else echo "<br>Ошибка копирования файла mir.txt";
 ?>
