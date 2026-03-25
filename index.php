@@ -8,4 +8,11 @@ else echo "<br>Ошибка при переименовании папки test"
 if(rmdir("www"))
     echo "<br>Каталог www удален";
 else echo "Ошибка при удалении каталога www";
+$array = ['first', 'second', 'third', 'fourth', 'fifth'];
+mkdir("test");
+foreach($array as $ar) {
+    $pathname = "test/" . $ar;
+        mkdir($pathname);
+        echo "<br>Папка $ar создана в каталоге test";
+}
 ?>
