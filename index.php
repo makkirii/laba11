@@ -27,4 +27,10 @@ echo "<br>Размер файла world.txt: $filesize байт, $filesize2 ме
 if (unlink("world.txt"))
     echo "<br>Файл world.txt удалён";
 else echo "<br>Ошибка в удалении файла world.txt";
+if (file_exists("world.txt"))
+    echo "<br>Файл world.txt существует";
+else echo "<br>Файл world.txt не существует";
+if (file_exists("mir.txt"))
+    echo "<br>Файл mir.txt существует";
+else echo "<br>Файл mir.txt не существует";
 ?>
