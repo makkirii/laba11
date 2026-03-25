@@ -19,4 +19,9 @@ else echo "<br>Файл mir.txt перемещён в каталог folder";
 if (copy("folder/mir.txt", "folder/world.txt"))
     echo "<br>Создана копия файла mir.txt";
 else echo "<br>Ошибка копирования файла mir.txt";
+chdir("/var/www/lobova.com/folder");
+$filesize = filesize("world.txt");
+$filesize2  = $filesize / 1024;
+$filesize3 = $filesize2 / 1024;
+echo "<br>Размер файла world.txt: $filesize байт, $filesize2 мегабайт, $filesize3 гигабайт";
 ?>
