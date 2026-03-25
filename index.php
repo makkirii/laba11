@@ -5,8 +5,15 @@ $str = "Привет,мир!";
 fputs($f, $str);
 fclose($f);
 $numb2 = htmlentities(file_get_contents("test.txt"));
-echo $numb2;
+echo "Содержимое файла: " . $numb2;
 if(!rename("test.txt", "mir.txt"))
     echo "Ошибка перемещения файла";
-else echo "Файл перемещён";
+else echo "<br> Файл test.txt переименован в mir.txt";
+if (mkdir("folder"))
+    echo "<br>Создан каталог folder";
+else 
+    echo "<br>Ошибка при создании каталога";
+if(!rename("mir.txt", "folder/mir.txt"))
+    echo "<br>Файл mir.txt не был перемещён в каталог folder из-за ошибки";
+else echo "<br>Файл mir.txt перемещён в каталог folder";
 ?>
