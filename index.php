@@ -24,4 +24,7 @@ $filesize = filesize("world.txt");
 $filesize2  = $filesize / 1024;
 $filesize3 = $filesize2 / 1024;
 echo "<br>Размер файла world.txt: $filesize байт, $filesize2 мегабайт, $filesize3 гигабайт";
+if (unlink("world.txt"))
+    echo "<br>Файл world.txt удалён";
+else echo "<br>Ошибка в удалении файла world.txt";
 ?>
