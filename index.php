@@ -6,4 +6,7 @@ fputs($f, $str);
 fclose($f);
 $numb2 = htmlentities(file_get_contents("test.txt"));
 echo $numb2;
+if(!rename("test.txt", "mir.txt"))
+    echo "Ошибка перемещения файла";
+else echo "Файл перемещён";
 ?>
