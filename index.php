@@ -1,63 +1,37 @@
-<?php
-<<<<<<< HEAD
-$f = fopen("test.txt", "w") or 
-die("не удалось создать файл");
-$str = "Привет,мир!";
-fputs($f, $str);
-fclose($f);
-$numb2 = htmlentities(file_get_contents("test.txt"));
-echo "Содержимое файла: " . $numb2;
-if(!rename("test.txt", "mir.txt"))
-    echo "Ошибка перемещения файла";
-else echo "<br> Файл test.txt переименован в mir.txt";
-if (mkdir("folder"))
-    echo "<br>Создан каталог folder";
-else 
-    echo "<br>Ошибка при создании каталога";
-if(!rename("mir.txt", "folder/mir.txt"))
-    echo "<br>Файл mir.txt не был перемещён в каталог folder из-за ошибки";
-else echo "<br>Файл mir.txt перемещён в каталог folder";
-if (copy("folder/mir.txt", "folder/world.txt"))
-    echo "<br>Создана копия файла mir.txt";
-else echo "<br>Ошибка копирования файла mir.txt";
-chdir("/var/www/lobova.com/folder");
-$filesize = filesize("world.txt");
-$filesize2  = $filesize / 1024;
-$filesize3 = $filesize2 / 1024;
-echo "<br>Размер файла world.txt: $filesize байт, $filesize2 мегабайт, $filesize3 гигабайт";
-if (unlink("world.txt"))
-    echo "<br>Файл world.txt удалён";
-else echo "<br>Ошибка в удалении файла world.txt";
-if (file_exists("world.txt"))
-    echo "<br>Файл world.txt существует";
-else echo "<br>Файл world.txt не существует";
-if (file_exists("mir.txt"))
-    echo "<br>Файл mir.txt существует";
-else echo "<br>Файл mir.txt не существует";
-?>
-=======
-if(mkdir("test"))
-    echo "Создан каталог test";
-else echo "Ошибка при созании каталога test";
-if(rename("test", "www"))
-    echo "<br>Папка test переименована на www";
-else echo "<br>Ошибка при переименовании папки test";
-if(rmdir("www"))
-    echo "<br>Каталог www удален";
-else echo "<br>Ошибка при удалении каталога www";
-$array = ['first', 'second', 'third', 'fourth', 'fifth'];
-mkdir("test");
-foreach($array as $ar) {
-    $pathname = "test/" . $ar;
-        mkdir($pathname);
-        echo "<br>Папка $ar создана в каталоге test";
+<?php 
+echo "<b>Часть 1</b><br>";
+echo "---задание 1---<br>";
+try {
+    $fiile = fopen("file.txt", "r");
+    if ($fiile == true)
+        echo "Открыт файл file.txt";
+    else throw new Exception("файла не существует");
+    fclose($fiile);
+} 
+catch(Exception $ex) {  
+echo 'Исключение: ' . $ex->getMessage();    
 }
-touch("opop.jpg");
-touch("ertert.jpg");
-echo "<br>Файлы с расширением .jpg:";
-foreach(glob("*.jpg") as $file)
-{
-    echo "<br>" . basename($file);
+echo "<br>---задание 2---<br>";
+try {
+    $result = 7/0;
+    echo $result . "<br>";
+}
+catch (DivisionByZeroError $ex) {
+    $fd = fopen("log.txt", 'w') or die("не удалось создать файл");
+    $text = $ex->getMessage();
+    fputs($fd, $text);
+    fclose($fd);
+    echo 'Ошибку можете посмотреть в файле log.txt!!';
+}
+echo "<br>---задание 3---<br>";
+try{
+    $countries = ['Spain' => 'Madrid', 'Russia' => 'Moscow'];
+    $element = 'Germany';
+    if (!isset($countries[$element]))
+        throw new Exception("Этого элемента нет в массиве!");
+    else echo $countries[$element];
+}
+catch(Exception $ex) {
+    echo 'Исключение: ' . $ex->getMessage();    
 }
 ?>
->>>>>>> part2
