@@ -5,6 +5,7 @@ abstract class Figure{
 }
 interface Count{
     public function getArea();
+    }
 class Rectangle extends Figure implements Count{ 
     private $a, $b;
     private $number_of_count = 4;
@@ -54,4 +55,16 @@ class Square extends Figure implements Count{
         return "Это класс квадрата. У него " . $this->number_of_count . " стороны";
     } 
 }
-}?>
+$rectangle1 = new Rectangle(6, 8);
+echo "Площадь прямоугольника1 равна " . $rectangle1->getArea() . "см2" . "<br>";
+$rectangle2 = new Rectangle(24, 5);
+echo "Площадь прямоугольника2 равна " . $rectangle2->getArea() . "см2" . "<br>";
+$triangle1 = new Triangle(3, 4, 5);
+echo "Площадь треугольника1 равна " . $triangle1->getArea() . "см2" . "<br>";
+$triangle2 = new Triangle(5, 5, 5);
+echo "Площадь треугольника2 равна " . $triangle2->getArea() . "см2" . "<br>";
+$square1 = new Square(6);
+echo "Площадь квадрата1 равна " . $square1->getArea() . "см2" . "<br>";
+$square2 = new Square(4);
+echo "Площадь квадрата2 равна " . $square2->getArea() . "см2" . "<br>";
+?>
